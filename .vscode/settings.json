@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/aacdc2b4-425d-4038-ad1c-df2fe49b2cff/resourceGroups/Hotel/providers/Microsoft.Web/sites/FinalHotel",
+    "appService.deploySubpath": "."
+}

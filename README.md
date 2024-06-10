@@ -72,6 +72,8 @@ Processes new bookings from the queue and sends notifications to users based on 
 
 ## PRESENTATION
 
+https://drive.google.com/file/d/1ICg5jnBZo3wdi8qdAEkOyHRjkDmusJRD/view?usp=drive_link
+
 ## Issues I Encountered
 
 I faced difficulties in ensuring smooth integration of various services or components within the system.

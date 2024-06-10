@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-links">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+            <a href="#" class="navbar-brand">Hotels.com</a>
+        </div>
+    </nav>
+    <hr>
+    <main class="main-content">
+        <div class="search-container">
+            <form action="/search" method="GET" class="search-form">
+                <div class="form-group">
+                    <label for="destination"><i class="fas fa-map-marker-alt"></i> Varış Noktası</label>
+                    <select id="destination" name="destination" required>
+                        <option value="" disabled selected>Şehir Seçin</option>
+                        <option value="Istanbul">Istanbul</option>
+                        <option value="Ankara">Ankara</option>
+                        <option value="Izmir">Izmir</option>
+                        <option value="Antalya">Antalya</option>
+                        <option value="Bodrum">Bodrum</option>
+                        <option value="Mugla">Mugla</option>
+                        <option value="Cappadocia">Cappadocia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dates"><i class="fas fa-calendar-alt"></i> Tarihler</label>
+                    <div class="date-inputs">
+                        <input type="date" id="startDate" name="startDate" required>
+                        <span>-</span>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="guests"><i class="fas fa-user"></i> Misafir Sayısı</label>
+                    <input type="number" id="guests" name="guests" min="1" required>
+                </div>
+                <button type="submit" class="search-button">Ara</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

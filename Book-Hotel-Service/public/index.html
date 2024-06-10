@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Hotel</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Book Hotel</h1>
+    <form id="hotelInfoForm">
+        <label for="hotelId">Hotel ID:</label>
+        <input type="text" id="hotelId" name="hotelId" required>
+        <button type="button" id="getHotelInfo">Get Hotel Info</button>
+    </form>
+    <div id="hotelInfo"></div>
+
+    <form id="bookingForm" style="display:none;">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+        
+        <label for="numPeople">Number of People:</label>
+        <input type="number" id="numPeople" name="numPeople" required>
+        
+        <button type="submit">Book Now</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('getHotelInfo').addEventListener('click', async () => {
+            const hotelId = document.getElementById('hotelId').value;
+            
+            const response = await fetch(`/hotel/${hotelId}`);
+            const hotelInfo = await response.json();
+            
+            if (hotelInfo.error) {
+                document.getElementById('hotelInfo').innerText = hotelInfo.error;
+                document.getElementById('bookingForm').style.display = 'none';
+            } else {
+                document.getElementById('hotelInfo').innerText = `Hotel Name: ${hotelInfo.name}, Location: ${hotelInfo.location}`;
+                document.getElementById('bookingForm').style.display = 'block';
+            }
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const hotelId = document.getElementById('hotelId').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const numPeople = document.getElementById('numPeople').value;
+
+            const response = await fetch('/book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ hotelId, startDate, endDate, numPeople })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerText = result.message || result.error;
+        });
+    </script>
+</body>
+</html>

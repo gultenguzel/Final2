@@ -1,0 +1,34 @@
+# docker-compose.yml
+version: '3'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - HOTEL_ADMIN_SERVICE_URL=http://hotel-admin-service:3001
+      - HOTEL_SEARCH_SERVICE_URL=http://hotel-search-service:3002
+      - BOOK_HOTEL_SERVICE_URL=http://book-hotel-service:3003
+      - NOTIFICATION_SERVICE_URL=http://notification-service:3004
+
+  hotel-admin-service:
+    build: ./hotel-admin-service
+    ports:
+      - "3004:3004"
+
+  
+  book-hotel-service:
+    build: ./book-hotel-service
+    ports:
+      - "3003:3003"
+
+  first-page:
+    build: ./Homepage
+    ports:
+      - "3005:3005"
+
+  hotel-search-service:
+    build: ./hotel-search-service
+    ports:
+       - "3006:3006"   

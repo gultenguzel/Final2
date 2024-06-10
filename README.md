@@ -66,4 +66,20 @@ Checks hotel capacities and sends notifications for hotels with low capacity.
 
 Processes new bookings from the queue and sends notifications to users based on reservation details.
 
+## DATA MODEL (ER DIAGRAM)
+
+![Ekran görüntüsü 2024-06-10 180225](https://github.com/gultenguzel/Final2/assets/140374859/155f5048-bf18-4830-ad30-3d13de8e03cf)
+
+## PRESENTATION
+
+## Issues I Encountered
+
+I faced difficulties in ensuring smooth integration of various services or components within the system.
+
+I struggled with attempting to access all APIs through an API gateway.
+
+Establishing connections to the database for the APIs also presented challenges.
+
+
+
 
